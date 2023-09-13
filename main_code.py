@@ -75,7 +75,7 @@ def index():
             logging.info(f"log my final result {reviews}")
 
             #  Here you have to add the mongodb connect data credentials
-            uri = "mongodb+srv://sahildhiman1297:<password>@cluster0.iiheo6v.mongodb.net/?retryWrites=true&w=majority"
+            uri = "mongodb+srv://<username>:<password>@cluster0.iiheo6v.mongodb.net/?retryWrites=true&w=majority"
             # Create a new client and connect to the server
             client = MongoClient(uri)
             db = client['review_scrap']
