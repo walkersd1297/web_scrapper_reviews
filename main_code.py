@@ -43,14 +43,12 @@ def index():
             reviews = []
             for commentbox in commentboxes:
                 try:
-                    #name.encode(encoding='utf-8')
                     name = commentbox.div.div.find_all('p', {'class': '_2sc7ZR _2V5EHH'})[0].text
 
                 except:
                     logging.info("name")
 
                 try:
-                    #rating.encode(encoding='utf-8')
                     rating = commentbox.div.div.div.find_all('div',{'class':'_3LWZlK _1BLPMq'})[0].text
 
 
@@ -59,7 +57,6 @@ def index():
                     logging.info("rating")
 
                 try:
-                    #commentHead.encode(encoding='utf-8')
                     commentHead = commentbox.div.div.div.find_all('p',{'class':'_2-N8zT'})[0].text
 
                 except:
@@ -77,7 +74,8 @@ def index():
                 reviews.append(mydict)
             logging.info(f"log my final result {reviews}")
 
-            uri = "mongodb+srv://sahildhiman1297:sahilSD1@cluster0.iiheo6v.mongodb.net/?retryWrites=true&w=majority"
+            #  Here you have to add the mongodb connect data credentials
+            uri = "mongodb+srv://sahildhiman1297:<password>@cluster0.iiheo6v.mongodb.net/?retryWrites=true&w=majority"
             # Create a new client and connect to the server
             client = MongoClient(uri)
             db = client['review_scrap']
@@ -88,7 +86,6 @@ def index():
         except Exception as e:
             logging.info(e)
             return 'something is wrong'
-    # return render_template('results.html')
 
     else:
         return render_template('index.html')
